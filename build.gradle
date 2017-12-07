@@ -1,0 +1,34 @@
+group 'sims.michael'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext.kotlin_version = '1.2.0'
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'kotlin'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version" // Used by jackson-module-kotlin, forcing same version as stdlib
+
+    implementation 'com.fasterxml.jackson.module:jackson-module-kotlin:2.9.2'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.9.2'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.9.2'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.2'
+
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+}
