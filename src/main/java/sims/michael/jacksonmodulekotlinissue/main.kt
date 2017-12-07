@@ -13,7 +13,7 @@ fun main(args: Array<String>) {
     println(foo)
 
     val fooWithStaticCreator = mapper.readValue("""{"baz": "bazValue"}""", FooWithStaticCreator::class.java)
-    println(fooWithStaticCreator)
+    println(fooWithStaticCreator) // Expect FooWithStaticCreator(bar=default, baz=bazValue), result == MismatchedInputException: Missing required creator property 'bar' (index 0)
 }
 
 data class Foo(val bar: String = "default", val baz: String = "default")
